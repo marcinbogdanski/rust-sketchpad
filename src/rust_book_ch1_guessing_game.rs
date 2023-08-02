@@ -9,22 +9,34 @@ pub fn main_guessing_game() {
 
     println!("The secret number is: {secret_number}");
 
-    let mut guess = String::new();
+    loop {
 
-    io::stdin()
-        .read_line(&mut guess)           // pass mutable reference
-        .expect("Failed to read line");  // crash or return number of bytes read
+        println!("Please input your guess.");
 
-    let guess: u32 = guess                    // mark as u32
-        .trim()                               // remove newline
-        .parse()                              // parse to u32
-        .expect("Please type a number!");     // crash or return number
+        let mut guess = String::new();
 
-    println!("You guessed: {guess}");
+        io::stdin()
+            .read_line(&mut guess)           // pass mutable reference
+            .expect("Failed to read line");  // crash or return number of bytes read
 
-    match guess.cmp(&secret_number) {
-        Ordering::Less => println!("Too small!"),
-        Ordering::Greater => println!("Too big!"),
-        Ordering::Equal => println!("You win!"),
+        let guess: u32 = match guess              // mark as u32, match result
+            .trim()                               // remove newline
+            .parse()                              // parse to u32
+            {
+                Ok(num) => num,                   // return num
+                Err(_) => continue,               // continue loop
+            };
+
+        println!("You guessed: {guess}");
+
+        match guess.cmp(&secret_number) {
+            Ordering::Less => println!("Too small!"),
+            Ordering::Greater => println!("Too big!"),
+            Ordering::Equal => {
+                println!("You win!");
+                break;
+            },
+        }
+
     }
 }
