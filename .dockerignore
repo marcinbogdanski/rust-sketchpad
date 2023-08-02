@@ -1,0 +1,23 @@
+# Python
+*.py[cod]
+__pycache__/
+
+# Rust
+debug/
+target/
+
+# IDEs
+.devcontainer/
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment
+*.env
+
+# Git
+.git/
+.gitignore
+
+# Other
