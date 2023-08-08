@@ -9,3 +9,4 @@ edition = "2021"
 rand = "0.8.5"    # any version at least 0.8.5 but below 9.0.0
 ctrlc = "3.4.0"
 chrono = "0.4.26"
+clap = "4.3.21"

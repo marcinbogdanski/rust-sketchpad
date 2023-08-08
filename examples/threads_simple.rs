@@ -2,6 +2,8 @@ use std::thread;
 use std::time::Duration;
 
 fn main() {
+    println!("Hello threads simple!");
+    
     let handle = thread::spawn(|| {
         for i in 1..10 {
             println!("hi number {} from the spawned thread!", i);
