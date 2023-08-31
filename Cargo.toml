@@ -7,3 +7,9 @@ edition = "2021"
 
 [dependencies]
 rand = "0.8.5"    # any version at least 0.8.5 but below 9.0.0
+ctrlc = "3.4.0"
+chrono = "0.4.26"
+clap = "4.3.21"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+zip = "0.6.6"
